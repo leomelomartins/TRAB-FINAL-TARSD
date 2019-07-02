@@ -9,7 +9,7 @@ Vagrant.configure(2) do |config|
   config.vm.define "containerMaster" do |containerMaster|
 
  	containerMaster.vm.box = "ubuntu/bionic64"
- 	containerMaster.vm.network "forwarded_port", guest: 9000, host: 9003
+ 	containerMaster.vm.network "forwarded_port", guest: 9000, host: 9005
     containerMaster.vm.network "private_network", ip: "192.168.50.2"
 	containerMaster.vm.hostname = "containerMaster"
 
