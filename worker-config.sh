@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #dando join na master como um worker
-cd TARSD\FINAL/containerClient
+cd TRAB-FINAL-TARSD/Worker
 chmod +x /vagrant/token.sh
 bash /vagrant/token.sh
 

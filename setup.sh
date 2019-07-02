@@ -12,5 +12,5 @@ sudo apt -y install docker-ce docker-ce-cli containerd.io
 sudo systemctl start docker
 #sudo systemctl enable docker
 
-git clone https://github.com/leomelomartins/tarsd-final
+git clone https://github.com/leomelomartins/TRAB-FINAL-TARSD
 #testado

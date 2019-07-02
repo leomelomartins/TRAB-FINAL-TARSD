@@ -7,7 +7,7 @@ sudo docker network create -d overlay --subnet 10.0.10.0/24 ClusterNet
 #Criação do serviço
 sudo docker service create -d --name webservice01 --network ClusterNet --replicas 3 -p 5001:80 server
 
-cd tarsd_final/Master
+cd TRAB-FINAL-TARSD/Master
 
 #PROMETHEUS
 #Criar a nova imagem prometheus usando o Dockerfile e iniciar o container Prometheus
