@@ -10,7 +10,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt update
 sudo apt -y install docker-ce docker-ce-cli containerd.io
 sudo systemctl start docker
-#sudo systemctl enable docker
+sudo systemctl enable docker
 
 git clone https://github.com/leomelomartins/TRAB-FINAL-TARSD
 #testado
