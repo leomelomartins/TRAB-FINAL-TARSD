@@ -3,24 +3,18 @@ global:
   evaluation_interval: 15s
 
   external_labels:
-    monitor: 'docker-host-alpha'
+    monitor: 'vm'
+
+rule_files:
+  - 'vms.rules.yml'
 
 remote_write:
-  - url: "http://192.168.50.2:8086/api/v1/prom/write?db=prometheus"
-    write_relabel_configs:
-      - source_labels: [__name__]
-        regex: 'job_instance:.*'
-        action: keep
 
-  - url: "http://192.168.50.2:8087/api/v1/prom/write?db=prometheus"
+  - url: "http://192.168.50.3:8086/api/v1/prom/write?db=vm"
     write_relabel_configs:
       - source_labels: [__name__]
         regex: 'job_container:.*'
         action: keep
-
-rule_files:
-  - 'vms.rules.yml'
-  - 'containers.rules.yml'
 
 scrape_configs:
   - job_name: 'nodeexporter'
