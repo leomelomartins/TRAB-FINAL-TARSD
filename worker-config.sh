@@ -7,7 +7,7 @@ bash /vagrant/token.sh
 
 #PROMETHEUS
 #Criar a nova imagem prometheus usando o Dockerfile e iniciar o container Prometheus
-sudo docker build -t my-prometheus
+sudo docker build -t my-prometheus .
 sudo docker run -p 9090:9090 --restart=always --detach=true --name=prometheus my-prometheus
 
 #iniciar os containers contendo os exporters: node-exporter e cadvisor.
