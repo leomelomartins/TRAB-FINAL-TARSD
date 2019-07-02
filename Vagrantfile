@@ -25,7 +25,7 @@ config.vm.define "containerWorker" do |containerWorker|
  	containerWorker.vm.box = "ubuntu/bionic64"
     containerWorker.vm.network "private_network", ip: "192.168.50.3"
 	containerWorker.vm.hostname = "containerWorker"
-    
+
     containerWorker.vm.provider "virtualbox" do |vb|
   	    vb.memory = "2048"
    	    vb.name = "containerWorker"
@@ -45,7 +45,7 @@ config.vm.define "containerWorker" do |containerWorker|
 	     sudo apt -y install docker-ce docker-ce-cli containerd.io
 	     sudo usermod -aG docker $USER
 	     sudo systemctl start docker
-       	 git clone https://github.com/leomelomartins/TRAB-FINAL-TARSD
+           git clone https://github.com/leomelomartins/TRAB-FINAL-TARSD
      SHELL
 
 end
