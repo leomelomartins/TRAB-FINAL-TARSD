@@ -45,7 +45,7 @@ config.vm.define "containerWorker" do |containerWorker|
 	     sudo apt -y install docker-ce docker-ce-cli containerd.io
 	     sudo usermod -aG docker $USER
 	     sudo systemctl start docker
-       	 git clone https://github.com/dcomp-leris/slice-enablers.git
+       	 git clone https://github.com/leomelomartins/TRAB-FINAL-TARSD
      SHELL
 
 end
