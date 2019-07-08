@@ -14,7 +14,7 @@ count = 1
 def job():
     global count
 
-    fname = 'arquivos/teste' + str(count) + '.txt'
+    fname = 'arquivos/teste1.txt'
     arq = open(fname, 'rb')
 
     for i in arq.readlines():
