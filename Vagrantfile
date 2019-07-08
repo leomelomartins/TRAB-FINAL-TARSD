@@ -19,8 +19,9 @@ Vagrant.configure(2) do |config|
       end
 
   containerServer.vm.provision :shell, path: "./master-config.sh"
+  end
 
-end
+  config.vm.provision :shell, path: "./setup.sh"
 
 config.vm.define "containerWorker" do |containerWorker|
 
