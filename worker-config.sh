@@ -15,7 +15,7 @@ sudo systemctl enable docker
 
 
 #Entrada do programa na instalação da imagem do docker do cliente
-cd Trabalho01-TARSD/
+cd TRAB-FINAL-TARSD/
 
 #Adiciona a permissão de execução do token
 sudo chmod +x /vagrant/join.sh
