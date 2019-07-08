@@ -1,6 +1,5 @@
 import socket
 import time
-import schedule
 
 host = '192.168.50.3'
 port = 8220
