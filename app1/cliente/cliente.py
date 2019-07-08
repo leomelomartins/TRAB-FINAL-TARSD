@@ -1,7 +1,7 @@
 import socket
 import time
 
-host = '192.168.50.3'
+host = '192.168.50.2'
 port = 8220
 address = (host, port)
 
