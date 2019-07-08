@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
  	containerServer.vm.network "forwarded_port", guest: 9000, host: 9001
 
       containerServer.vm.network "private_network", ip: "192.168.50.2"
-	containerServer.vm.hostname = "containerServer"
+	containerServer.vm.hostname = "server"
       containerServer.vm.provider "virtualbox" do |vb|
   	         vb.memory = "4096"
    	         vb.name = "containerServer"
@@ -20,8 +20,6 @@ Vagrant.configure(2) do |config|
 
   containerServer.vm.provision :shell, path: "./master-config.sh"
   end
-
-  config.vm.provision :shell, path: "./setup.sh"
 
 config.vm.define "containerWorker" do |containerWorker|
 
@@ -35,6 +33,4 @@ config.vm.define "containerWorker" do |containerWorker|
 
   containerWorker.vm.provision :shell, path: "./worker-config.sh"
   end
-
-      config.vm.provision :shell, path: "./setup.sh"
 end

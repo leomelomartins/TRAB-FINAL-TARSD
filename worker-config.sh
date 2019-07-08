@@ -1,15 +1,24 @@
 #!/bin/bash
 
-#dando join na master como um worker
-cd TRAB-FINAL-TARSD/
-chmod +x /vagrant/token.sh
-bash /vagrant/token.sh
+git clone https://github.com/leomelomartins/TRAB-FINAL-TARSD.git
 
-#PROMETHEUS
-#Criar a nova imagem prometheus usando o Dockerfile e iniciar o container Prometheus
-sudo docker build -t my-prometheus .
-sudo docker run -p 9090:9090 --restart=always --detach=true --name=prometheus my-prometheus
 
-#iniciar os containers contendo os exporters: node-exporter e cadvisor.
-sudo docker run -d --restart=always --net="host" --pid="host" --publish=9100:9100 --detach=true --name=node-exporter -v "/:/host:ro,rslave" quay.io/prometheus/node-exporter --path.rootfs /host
-sudo docker run --restart=always --volume=/:/rootfs:ro --volume=/var/run:/var/run:ro --volume=/sys:/sys:ro --volume=/var/lib/docker/:/var/lib/docker:ro --volume=/dev/disk/:/dev/disk:ro --publish=8080:8080 --detach=true --name=cadvisor google/cadvisor:latest
+sudo apt update
+sudo apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+sudo apt -y install docker-ce docker-ce-cli containerd.io
+sudo systemctl start docker
+sudo systemctl enable docker
+
+
+#Entrada do programa na instalação da imagem do docker do cliente
+cd Trabalho01-TARSD/
+
+#Adiciona a permissão de execução do token
+sudo chmod +x /vagrant/join.sh
+
+#Adiciona o worker (cliente) no Cluster
+bash /vagrant/join.sh
