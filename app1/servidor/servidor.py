@@ -1,7 +1,7 @@
 import socket
 import sys
 
-host = 'localhost'
+host = '192.168.50.2'
 port = 8220
 address = (host, port)
 
@@ -16,7 +16,7 @@ print ("Connected to client at ", address)
 while True:
 
     output = conn.recv(2048)
- 
+
     if output.strip() == (b"disconnect"):
         conn.close()
         sys.exit("Received disconnect message.  Shutting down.")
