@@ -25,4 +25,4 @@ while True:
       conn.send(b"ack")
       print('Arquivo enviado!')
 arq.close()
-conn.close()
+tcp.close()
