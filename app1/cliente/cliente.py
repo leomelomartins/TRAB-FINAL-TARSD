@@ -7,7 +7,7 @@ tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.connect(dest)
 
 fname = 'enviados/' + input() + '.txt'
-arq = open(fname, 'r')
+arq = open(fname, mode='r')
 
 for i in arq.readlines():
   tcp.send(i)
