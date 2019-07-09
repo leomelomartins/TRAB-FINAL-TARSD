@@ -24,4 +24,5 @@ while True:
       arq.write(output)
       conn.send(b"ack")
       print('Arquivo enviado!')
-      arq.close()
+arq.close()
+conn.close()
