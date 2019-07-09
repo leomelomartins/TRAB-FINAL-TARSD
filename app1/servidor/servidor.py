@@ -23,5 +23,5 @@ while True:
   elif output:
       arq.write(output)
       conn.send(b"ack")
-
-arq.close()
+      print('Arquivo enviado!')
+      arq.close()
