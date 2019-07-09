@@ -9,7 +9,7 @@ tcp.listen(1)
 
 while True:
     con, cliente = tcp.accept()
-    print 'Concetado por', cliente
+    print ('Conectado por', cliente)
     while True:
         msg = con.recv(1024)
         if not msg: break
