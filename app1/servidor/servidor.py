@@ -11,7 +11,7 @@ print ("Listening for client . . .")
 conn, address = tcp.accept()
 print ("Connected to client at ", address)
 
-arq = open('recebidos/foo.txt', 'w')
+arq = open('recebidos/recebido.txt', 'w')
 
 while True:
   output = conn.recv(2048)
