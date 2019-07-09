@@ -29,4 +29,3 @@ while True:
     arq.close()
     print('Finalizando a conexão')
 conn.close()
-sys.exit()
