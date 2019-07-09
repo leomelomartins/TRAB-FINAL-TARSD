@@ -6,8 +6,8 @@ dest = (HOST, PORT)
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.connect(dest)
 
-fname = 'arquivos/teste' + input() + '.txt'
-arq = open(fname, 'rb')
+fname = 'arquivos/' + input()
+arq = open(fname, 'r')
 
 for i in arq.readlines():
   tcp.send(i)
