@@ -10,6 +10,6 @@ fname = 'arquivos/teste' + input() + '.txt'
 arq = open(fname, 'rb')
 
 for i in arq.readlines():
-  client_socket.send(i)
+  tcp.send(i)
 
 tcp.close()
