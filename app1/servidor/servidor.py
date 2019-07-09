@@ -17,12 +17,12 @@ while True:
   output = conn.recv(2048)
 
   if output.strip() == (b"disconnect"):
-    conn.close()
+    tcp.close()
     sys.exit("Received disconnect message.  Shutting down.")
     conn.send(b"dack")
   elif output:
       arq.write(output)
       conn.send(b"ack")
       print('Arquivo enviado!')
-arq.close()
-tcp.close()
+      arq.close()
+      tcp.close()
