@@ -1,35 +1,13 @@
 import socket
-import time
-import schedule
+HOST = '192.168.50.2'
+PORT = 8220
+dest = (HOST, PORT)
 
-host = '192.168.50.2'
-port = 8220
-address = (host, port)
+tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+tcp.connect(dest)
 
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(address)
-
-count = 1
-
-def job():
-    global count
-
-    fname = 'arquivos/teste1.txt'
-    arq = open(fname, 'rb')
-
-    for i in arq.readlines():
-        client_socket.send(i)
-
-    while client_socket.recv(2048) != (b"ack"):
-        print ("Waiting for ACK...")
-
-    print ("ACK received! File", count, "sent.")
-    count = count + 1
-    if count > 4:
-        count = 1
-
-schedule.every(0.4).minutes.do(job)
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+msg = raw_input()
+while msg <> '\x18':
+    tcp.send (msg)
+    msg = raw_input()
+tcp.close()

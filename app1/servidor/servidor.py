@@ -1,28 +1,18 @@
 import socket
-import sys
+HOST = '192.168.50.2'
+PORT =  8220
+orig = (HOST, PORT)
 
-host = '192.168.50.2'
-port = 8220
-address = (host, port)
-
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_socket.bind(address)
-server_socket.listen(5)
-
-print ("Listening for client . . .")
-conn, address = server_socket.accept()
-print ("Connected to client at ", address)
+tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+tcp.bind(orig)
+tcp.listen(1)
 
 while True:
-
-    output = conn.recv(2048)
-
-    if output.strip() == (b"disconnect"):
-        conn.close()
-        sys.exit("Received disconnect message.  Shutting down.")
-        conn.send(b"dack")
-    elif output:
-        arq = open('banco-dados.txt', 'wb')
-        arq.write(output)
-        conn.send(b"ack")
-        arq.close()
+    con, cliente = tcp.accept()
+    print 'Concetado por', cliente
+    while True:
+        msg = con.recv(1024)
+        if not msg: break
+        print cliente, msg
+    print 'Finalizando conexao do cliente', cliente
+    con.close()
