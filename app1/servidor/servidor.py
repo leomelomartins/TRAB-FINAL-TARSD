@@ -13,6 +13,6 @@ while True:
     while True:
         msg = con.recv(1024)
         if not msg: break
-        print cliente, msg
+        print (cliente, msg)
     print ('Finalizando conexao do cliente', cliente)
     con.close()
