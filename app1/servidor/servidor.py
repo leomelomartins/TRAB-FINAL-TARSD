@@ -26,5 +26,4 @@ while True:
     print('Arquivo enviado!')
     arq.close()
     print('Finalizando a conexão')
-    False
 conn.close()
