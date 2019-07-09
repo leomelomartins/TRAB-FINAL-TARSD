@@ -6,7 +6,7 @@ dest = (HOST, PORT)
 tcp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp.connect(dest)
 
-fname = 'arquivos/' + input()
+fname = 'arquivos/' + input() + '.txt'
 arq = open(fname, 'r')
 
 for i in arq.readlines():
