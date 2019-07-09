@@ -14,13 +14,14 @@ print ("Connected to client at ", address)
 arq = open('recebidos/foo.txt', 'w')
 
 while True:
-     output = conn.recv(2048)
+  output = conn.recv(2048)
 
-    if output.strip() == (b"disconnect"):
-        conn.close()
-        sys.exit("Received disconnect message.  Shutting down.")
-        conn.send(b"dack")
-    elif output:
-        arq.write(output)
-        conn.send(b"ack")
+  if output.strip() == (b"disconnect"):
+    conn.close()
+    sys.exit("Received disconnect message.  Shutting down.")
+    conn.send(b"dack")
+  elif output:
+      arq.write(output)
+      conn.send(b"ack")
+
 arq.close()
