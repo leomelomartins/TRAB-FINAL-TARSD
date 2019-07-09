@@ -1,4 +1,6 @@
 import socket
+import sys
+
 HOST = '192.168.50.2'
 PORT =  8220
 orig = (HOST, PORT)
@@ -27,3 +29,4 @@ while True:
     arq.close()
     print('Finalizando a conexão')
 conn.close()
+sys.exit()
