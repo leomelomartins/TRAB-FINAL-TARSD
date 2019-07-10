@@ -6,19 +6,19 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  config.vm.define "containerM" do |containerM|
+  config.vm.define "containerServer" do |containerServer|
 
- 	containerM.vm.box = "ubuntu/bionic64"
- 	containerM.vm.network "forwarded_port", guest: 9000, host: 9002
+ 	containerServer.vm.box = "ubuntu/bionic64"
+ 	containerServer.vm.network "forwarded_port", guest: 9000, host: 9001
 
-      containerM.vm.network "private_network", ip: "192.168.50.2"
-	containerM.vm.hostname = "server"
-      containerM.vm.provider "virtualbox" do |vb|
+      containerServer.vm.network "private_network", ip: "192.168.50.2"
+	containerServer.vm.hostname = "containerServer"
+      containerServer.vm.provider "virtualbox" do |vb|
   	         vb.memory = "4096"
-   	         vb.name = "containerM"
+   	         vb.name = "containerServer"
       end
 
-  containerM.vm.provision :shell, path: "./master-config.sh"
+  containerServer.vm.provision :shell, path: "./master-config.sh"
   end
 
 config.vm.define "containerWorker" do |containerWorker|
